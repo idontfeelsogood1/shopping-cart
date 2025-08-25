@@ -4,7 +4,13 @@ function Item({ item }) {
     const [addedItems, setAddedItems] = useOutletContext()
 
     function handleAddToCart() {
-        setAddedItems([...addedItems, item])
+        if (!addedItems.has(item.id)) {
+            addedItems.set(item.id, [item])
+            setAddedItems(structuredClone(addedItems))
+        } else {
+            addedItems.get(item.id).push(item)
+            setAddedItems(structuredClone(addedItems))
+        }
     }
 
     return (
