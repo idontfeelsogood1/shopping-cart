@@ -22,9 +22,9 @@ function Cart() {
             <section className="container">
                 <h2>Cart Items: {addedItems.size}</h2>
                 <div className="item-container">
-                    {mapArray.map((id) => {
+                    {mapArray.map((entries) => {
                         return <CartItem
-                            id={id}
+                            id={entries[0]}
                         />
                     })}
                 </div>
