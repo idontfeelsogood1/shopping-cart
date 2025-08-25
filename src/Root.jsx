@@ -4,6 +4,14 @@ import { Link, Outlet } from 'react-router'
 
 function Root() {
   const [addedItems, setAddedItems] = useState(new Map())
+  const mapArray = Array.from(addedItems.entries())
+  let totalItems = 0
+
+  for (let entries of mapArray) {
+    for (let i = 0; i < entries[1].length; i++) {
+      totalItems += 1
+    }
+  }
 
   return (
     <>
@@ -15,6 +23,7 @@ function Root() {
           <Link to={{pathname: "/cart"}}>Cart: {addedItems.length}</Link>
         </nav>
       </header>
+      <h2>Total Items: {totalItems}</h2>
       <Outlet context={[addedItems, setAddedItems]}/>
     </>
   )
