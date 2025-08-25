@@ -5,11 +5,13 @@ function Cart() {
     const [addedItems, setAddedItems] = useOutletContext()
     const mapArray = Array.from(addedItems.entries())
     let totalPrice = 0
+    let totalItems = 0
 
     for (let entries of mapArray) {
         for (let item of entries[1]) {
             totalPrice += item.price
         }
+        if (entries[1].length !== 0) totalItems += 1
     }
 
     function handleCheckout() {
@@ -20,7 +22,7 @@ function Cart() {
         <main>
             <h1>Your Cart</h1>
             <section className="container">
-                <h2>Cart Items: {addedItems.size}</h2>
+                <h2>Cart Items: {totalItems}</h2>
                 <div className="item-container">
                     {mapArray.map((entries) => {
                         return <CartItem
