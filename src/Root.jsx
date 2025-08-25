@@ -3,16 +3,19 @@ import './Root.css'
 import { Link, Outlet } from 'react-router'
 
 function Root() {
+  const [addedItems, setAddedItems] = useState(new Map())
 
   return (
     <>
-      <nav>
+      <header>
         <h1>Shopping Cart</h1>
-        <Link to={{pathname: "/"}}>Home</Link>
-        <Link to={{pathname: "/shop"}}>Shop</Link>
-        <Link to={{pathname: "/cart"}}>Cart</Link>
-      </nav>
-      <Outlet />
+        <nav>
+          <Link to={{pathname: "/"}}>Home</Link>
+          <Link to={{pathname: "/shop"}}>Shop</Link>
+          <Link to={{pathname: "/cart"}}>Cart: {addedItems.length}</Link>
+        </nav>
+      </header>
+      <Outlet context={[addedItems, setAddedItems]}/>
     </>
   )
 }
@@ -24,7 +27,7 @@ export default Root
 
 // Implement <Root />
   // Root contain's state of Added items
-  // Added items should be {id:, name:, amount:, price:,} (based on api, subject to change)
+  // Added items should be an array of objects 
   // State should be passed through outlet context
 
 // Implement <Home />
@@ -33,12 +36,20 @@ export default Root
 // Implement <Shop />
 // Implement <Item />
   // Shop fetch API for items object on mount
+
   // Item receive object from Shop as props
   // Item receive Root's (state) (useContextOutlet)
   // Item set state of Root's added items
 
 // Implement <Cart />
+// Implement <CartItem />
   // Cart receive Root's added items state (useContextOutlet)
-  // Cart can modify root's item
-  // Checkout button should clear root's item
+  // Checkout button should clear root's added items
   // Continue Shopping button Link to /shop
+
+  // CartItem receive item.id from Cart
+  // CartItem receive Root's added items state (useContextOutlet)
+  // CartItem add and subtracts itself from root
+  // CartItem can remove itself from root
+
+// Implement <ErrorPage />
