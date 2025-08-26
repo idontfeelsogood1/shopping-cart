@@ -1,5 +1,6 @@
 import { useItems } from "../helpers"
 import Item from "../Item/Item"
+import style from './Shop.module.css'
 
 function Shop() {
    const { items, isLoading, error } = useItems()
@@ -7,20 +8,20 @@ function Shop() {
     // return loading screen if isLoading
     if (isLoading) {
         return (
-            <h1>Loading Items...</h1>
+            <h1 className={style.loading}>Loading Items...</h1>
         )
     }
 
     // return error if error
     if (error) {
         return (
-            <h1>Error: {error}</h1>
+            <h1 className={style.error}>Error: {error}</h1>
         )
     }
 
     // return items if nothing goes wrong
     return (
-        <main>
+        <main className={style.shop}> 
             {items.map((object) => {
                 return <Item 
                     item={object}
