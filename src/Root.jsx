@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import './Root.css'
+import './Root.module.css'
+import './reset.css'
 import { Link, Outlet } from 'react-router'
 
 function Root() {
@@ -15,15 +16,17 @@ function Root() {
 
   return (
     <>
-      <header>
+      <header className='main-header'>
         <h1>Shopping Cart</h1>
         <nav>
-          <Link to={{pathname: "/"}}>Home</Link>
-          <Link to={{pathname: "/shop"}}>Shop</Link>
-          <Link to={{pathname: "/cart"}}>Cart: {addedItems.length}</Link>
+          <Link className='header-link' to={{pathname: "/"}}>Home</Link>
+          <Link className='header-link' to={{pathname: "/shop"}}>Shop</Link>
         </nav>
+        <div>
+          <Link className='header-link cart' to={{pathname: "/cart"}}>Cart:</Link>
+          <span className='amount'> {totalItems}</span>
+        </div>
       </header>
-      <h2>Total Items: {totalItems}</h2>
       <Outlet context={[addedItems, setAddedItems]}/>
     </>
   )
