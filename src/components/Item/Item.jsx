@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router"
+import style from "./Item.module.css"
 
 function Item({ item }) {
     const [addedItems, setAddedItems] = useOutletContext()
@@ -14,13 +15,13 @@ function Item({ item }) {
     }
 
     return (
-        <div className="card">
+        <div className={style.card}>
             <img src={item.image} alt="item.title" />
             <section>
-                <h2 className="item-name">{item.title}</h2>
-                <h2 className="price">${item.price}</h2>
+                <h2 className={style.itemName}>{item.title}</h2>
+                <h2 className={style.price}>${item.price}</h2>
             </section>
-            <button type="button" onClick={handleAddToCart}></button>
+            <button type="button" onClick={handleAddToCart}>Add to Cart</button>
         </div>
     )
 
