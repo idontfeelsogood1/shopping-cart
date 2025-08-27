@@ -42,12 +42,14 @@
 
 .container {
     display: flex;
+    justify-content: center;
     gap: 28px;
 }
 
 .infoBox {
     background-color: #ffffff;
     padding: 20px;
+    max-width: 270px;
     border-radius: 8px;
     box-shadow: gray 0 1px 4px;
     display: flex;
