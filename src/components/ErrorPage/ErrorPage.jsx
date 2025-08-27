@@ -1,6 +1,8 @@
+import style from "./ErrorPage.module.css"
+
 function ErrorPage() {
     return (
-        <p>Page does not exists.</p>
+        <p className={style.error}>Page does not exists.</p>
     )
 }
 
