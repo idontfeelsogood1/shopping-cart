@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './reset.css' // global style
 import style from './Root.module.css'
 import { Link, Outlet } from 'react-router'
+import { Helmet } from 'react-helmet'
 
 function Root() {
   const [addedItems, setAddedItems] = useState(new Map())
@@ -16,6 +17,11 @@ function Root() {
 
   return (
     <>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shopping Cart</title>
+      </Helmet>
       <header className={style.mainHeader}>
         <h1>Shopping Cart</h1>
         <nav>
