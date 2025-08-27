@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router"
+import style from "./CartItem.module.css"
 
 function CartItem({ id }) {
     const [addedItems, setAddedItems] = useOutletContext()
@@ -27,19 +28,21 @@ function CartItem({ id }) {
 
     if (itemsAmount !== 0) {
         return (
-            <div className="cart-item">
+            <div className={style.cartItem}>
                 <img src={item.image} alt={item.title} />
-                <div className="item-info">
-                    <span>{item.title}</span>
-                    <span>{totalPrice}</span>
-                </div>
-                <div className="button-group">
-                    <div className="change-amount-btn-container">
-                        <button onClick={handleSubtract}>-</button>
-                        <span>{itemsAmount}</span>
-                        <button onClick={handleAdd}>+</button>
+                <div className={style.buttonGroup}>
+                    <div className={style.itemInfo}>
+                        <span className={style.itemTitle}>{item.title}</span>
+                        <span className={style.itemPrice}>${totalPrice}</span>
                     </div>
-                    <button className="remove-btn" onClick={handleRemove}>Remove</button>
+                    <div className={style.buttonContainer}>
+                        <div className={style.amountBtnGroup}>
+                            <button className={style.subtractBtn} onClick={handleSubtract}>-</button>
+                            <span>{itemsAmount}</span>
+                            <button className={style.addBtn} onClick={handleAdd}>+</button>
+                        </div>
+                        <button className={style.removeBtn} onClick={handleRemove}>Remove</button>
+                    </div>
                 </div>
             </div>
         )

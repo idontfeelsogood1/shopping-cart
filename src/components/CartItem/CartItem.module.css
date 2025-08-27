@@ -1,0 +1,93 @@
+.cartItem {
+    height: 133px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 0.2px solid gray;
+    display: flex;
+    gap: 16px;
+}
+
+.cartItem > img {
+    object-fit: contain;
+    width: 96px;
+    height: 96px;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.itemTitle {
+    font-weight: bold;
+}
+
+.itemPrice {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.amountBtnGroup {
+    display: flex;
+    align-items: center;
+}
+
+.amountBtnGroup > span {
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(244, 241, 241);
+}
+
+.subtractBtn, .amountBtnGroup > span, .addBtn {
+    width: 32px;
+    height: 32px;
+}
+
+.subtractBtn {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: none;
+    background-color: rgb(218, 215, 215);
+    transition: all 0.2s ease;
+}
+
+.addBtn {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: none; 
+    background-color: rgb(218, 215, 215);
+    transition: all 0.2s ease;
+}
+
+
+.addBtn:hover, .subtractBtn:hover {
+    background-color: rgb(170, 168, 168);
+}
+
+.removeBtn {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: all 0.2s ease;
+}
+
+.removeBtn:hover {
+    background-color: rgb(226, 18, 18);
+}
