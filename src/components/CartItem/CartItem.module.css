@@ -5,6 +5,7 @@
     border-bottom: 0.2px solid gray;
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 .cartItem > img {

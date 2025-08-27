@@ -1,5 +1,6 @@
 import { useOutletContext, Link } from "react-router"
 import CartItem from "../CartItem/CartItem"
+import style from './Cart.module.css'
 
 function Cart() {
     const [addedItems, setAddedItems] = useOutletContext()
@@ -19,11 +20,11 @@ function Cart() {
     }
 
     return (
-        <main>
+        <main className={style.cart}>
             <h1>Your Cart</h1>
-            <section className="container">
-                <h2>Cart Items: {totalItems}</h2>
-                <div className="item-container">
+            <section className={style.container}>
+                <h3>Cart Items ({totalItems})</h3>
+                <div className={style.itemContainer}>
                     {mapArray.map((entries) => {
                         return <CartItem
                             id={entries[0]}
@@ -31,26 +32,27 @@ function Cart() {
                     })}
                 </div>
             </section>
-            <footer className="payment">
+            <footer className={style.payment}>
                 <h2>Order Summary</h2>
-                <section className="pricing-details">
-                    <div className="space-between">
+                <section className={style.pricingDetails}>
+                    <div className={style.spaceBetween}>
                         <span>Subtotal</span>
                         <span>${totalPrice}</span>
                     </div>
-                    <div className="space-between">
+                    <div className={style.spaceBetween}>
                         <span>Shipping</span>
                         <span>Free</span>
                     </div>
                 </section>
-                <section className="checkout">
-                    <div className="space-between">
-                        <span>Total</span>
-                        <span>${totalPrice}</span>
+                <hr />
+                <section className={style.checkOut}>
+                    <div className={style.spaceBetween}>
+                        <h2>Total</h2>
+                        <h2>${totalPrice}</h2>
                     </div>
-                    <div className="button-group">
+                    <div className={style.buttonGroup}>
                         <button type="button" onClick={handleCheckout}>Proceed to Checkout</button>
-                        <Link to={{pathname: "/shop"}}>Continue Shopping</Link>
+                        <Link className={style.link} to={{pathname: "/shop"}}>Continue Shopping</Link>
                     </div>
                 </section>
             </footer>
